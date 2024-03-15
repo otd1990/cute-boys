@@ -1,0 +1,73 @@
+@import "../../assets/buttons.css";
+
+.upload-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: rgba(0, 0, 0, 0.65);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-modal__inner {
+  max-width: 350px;
+  width: 100%;
+  margin: auto;
+  background-color: #f7f7f7;
+  color: #213547;
+  border-radius: 4px;
+  padding: 1rem 1.75rem;
+}
+
+.upload-modal__form {
+  max-width: 95%;
+}
+
+.upload-modal h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border: 1px solid #d4d4d4;
+  padding: 0.35rem;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+small {
+  display: block;
+}
+
+.form-group {
+  max-width: 100%;
+  padding: 0 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-group small {
+  font-size: 0.65rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.upload-modal__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.75rem 0 0 0;
+}

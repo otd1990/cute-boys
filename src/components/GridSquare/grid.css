@@ -1,0 +1,9 @@
+.grid-square button {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #f7f7f7;
+  background: transparent;
+  padding-block: 0;
+  padding-inline: 0;
+  cursor: pointer;
+}
