@@ -22,11 +22,18 @@
             </div>
             <div class="form-group">
               <label for="image-size">Number of squares?</label>
-              <input
+              <!-- <input
                 type="number"
                 name="image-size"
                 required
                 v-model="formData.imageSizeWidth"
+              /> -->
+              <input
+                readonly
+                type="number"
+                name="image-size"
+                required
+                value="1"
               />
               <small>
                 The image will be a sqaure, so if you set to 10 here your image
@@ -94,7 +101,7 @@ const password = ref("");
 const formData = ref({
   squareNo: props.squareNo,
   imageName: "",
-  imageSizeWidth: 10,
+  imageSizeWidth: 48,
 });
 
 // @ts-ignore

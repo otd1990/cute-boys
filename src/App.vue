@@ -45,7 +45,7 @@ const usedSquares = ref(0);
 const userLoggedIn = ref(false);
 let modalType = "";
 
-const squareSize = 10;
+const squareSize = 48;
 const squaresPerRow = Math.floor(window.innerWidth / squareSize);
 // const totalSquares = 1000000;
 const totalSquares = 1000 - usedSquares.value;
