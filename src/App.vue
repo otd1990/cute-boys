@@ -34,7 +34,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import { supabase } from "./supabase";
 import GridSquare from "./components/GridSquare/GridSquare.vue";
 import UploadModal from "./components/UploadModal/UploadModal.vue";
-import SignIn from "./components/Signin/SignIn.vue";
+import SignIn from "./components/SignIn/SignIn.vue";
 
 const visibleSquares: any = ref([]);
 const currentPage: any = ref(1);
@@ -89,7 +89,7 @@ const handleGridSquareClicked = (squareNo: number) => {
   showModal.value = true;
 };
 
-const handleModalClose = (logInSuccess) => {
+const handleModalClose = (logInSuccess: boolean) => {
   fetchImages();
   //update squares used
   showModal.value = false;

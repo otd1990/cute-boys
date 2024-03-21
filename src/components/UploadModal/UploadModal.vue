@@ -86,8 +86,6 @@ const props = defineProps<{
   modalType?: string;
 }>();
 
-console.log("modal type ", props.modalType);
-
 const emit = defineEmits(["closeModal"]);
 
 const email = ref("");
@@ -99,6 +97,7 @@ const formData = ref({
   imageSizeWidth: 10,
 });
 
+// @ts-ignore
 const config = import.meta.env;
 
 const handleFormSubmit = async () => {
@@ -198,13 +197,13 @@ const createImageURL = async (resizeFile: any) => {
 const handleSignin = async () => {
   try {
     // Use the Supabase provided method to handle the signin
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email: email.value,
       password: password.value,
     });
     if (error) throw error;
 
-    sessionStorage.setItem("user", true);
+    sessionStorage.setItem("user", "true");
 
     emit("closeModal", true);
   } catch (error) {
@@ -215,12 +214,10 @@ const handleSignin = async () => {
 const handleSignup = async () => {
   try {
     // Use the Supabase provided method to handle the signup
-    const { error, data } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
     });
-
-    console.log(data);
 
     if (error) throw error;
 

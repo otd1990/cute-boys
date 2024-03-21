@@ -32,22 +32,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
 import { supabase } from "../../supabase";
 
 const emit = defineEmits(["showSignin", "signUp", "signOut"]);
-const props = defineProps(["isLoggedIn"]);
+defineProps(["isLoggedIn"]);
 
 async function signOut() {
   try {
     const { error } = await supabase.auth.signOut();
 
-    if (error) throw new Error(error);
+    if (error) throw new Error("Error");
 
     sessionStorage.removeItem("user");
 
     emit("signOut");
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
   }
 }

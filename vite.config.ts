@@ -5,4 +5,5 @@ import ViteEnvPlugin from "vite-plugin-env";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  base: "/cute-boys/",
 });

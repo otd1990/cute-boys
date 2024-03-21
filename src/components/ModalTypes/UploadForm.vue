@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <form class="upload-modal__form">
     <div class="form-group">
       <label for="image-upload">Image:</label>
@@ -33,4 +33,4 @@
       </button>
     </div>
   </form>
-</template>
+</template> -->
