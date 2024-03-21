@@ -22,12 +22,6 @@
             </div>
             <div class="form-group">
               <label for="image-size">Number of squares?</label>
-              <!-- <input
-                type="number"
-                name="image-size"
-                required
-                v-model="formData.imageSizeWidth"
-              /> -->
               <input
                 readonly
                 type="number"
@@ -35,6 +29,13 @@
                 required
                 value="1"
               />
+              <!-- <input
+                type="number"
+                name="image-size"
+                required
+                v-model="formData.imageSizeWidth"
+              /> -->
+
               <small>
                 The image will be a sqaure, so if you set to 10 here your image
                 will take up 10 sqaures, you will be charged £1 per square.
