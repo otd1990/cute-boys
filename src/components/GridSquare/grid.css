@@ -1,6 +1,11 @@
+.grid-square {
+  height: 48px;
+  width: 48px;
+}
+
 .grid-square button {
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  width: 100%;
   border: 1px solid #f7f7f7;
   background: transparent;
   padding-block: 0;

@@ -38,6 +38,6 @@ const imageSrc = computed(() => {
 });
 
 const imageSize = computed(() => {
-  return `height: 50px; width: 50px;`;
+  return `height: 48px; width: 48px;`;
 });
 </script>

@@ -8,8 +8,8 @@
     />
     <article class="container">
       <section class="intro">
-        <h1 class="hero__heading">Cute Butts</h1>
-        <p>The cutest butts on the internet</p>
+        <h1 class="hero__heading visually-hidden">Cute Butts</h1>
+        <img src="/logo.png" alt="cute butts" class="heading__logo" />
       </section>
       <section class="grid-container">
         <GridSquare
@@ -48,7 +48,7 @@ let modalType = "";
 const squareSize = 10;
 const squaresPerRow = Math.floor(window.innerWidth / squareSize);
 // const totalSquares = 1000000;
-const totalSquares = 1000000 - usedSquares.value;
+const totalSquares = 1000 - usedSquares.value;
 
 const calculateVisibleSquares = () => {
   const viewportHeight = window.innerHeight;
@@ -169,8 +169,21 @@ onBeforeUnmount(() => {
   max-width: fit-content;
 }
 
+.heading__logo {
+  display: block;
+  margin: 1rem auto;
+  height: 100px;
+  width: 250px;
+}
+
 .intro p {
   margin: 0;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0 1rem;
+  }
 }
 </style>

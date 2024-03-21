@@ -1,7 +1,7 @@
 <template>
   <section class="header">
     <article class="header__logo">
-      <img src="/logo.png" alt="cute butts" class="header__logo" />
+      <img src="/header__logo.png" alt="cute boys logo" />
     </article>
     <article class="header__buttons">
       <button
@@ -61,27 +61,28 @@ async function signOut() {
   padding: 0.5rem 1rem;
 
   background-color: #2c3333;
-  margin-bottom: 1rem;
+  min-height: 2.5rem;
 }
 
 button + button {
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 }
 
 .header__buttons {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 }
 
 .header .button {
-  padding: 0.35rem;
-  min-width: 3.5rem;
-  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+  min-width: 5.5rem;
+  font-size: 0.9rem;
 }
 
-.header__logo {
-  height: 75px;
-  width: 200px;
+.header__logo img {
+  height: 50px;
+  width: 44px;
+  display: block;
 }
 </style>
