@@ -43,7 +43,7 @@ const imagesFromDB: any = ref([]);
 const clickedSquare = ref();
 const usedSquares = ref(0);
 const userLoggedIn = ref(false);
-let modalType = "";
+let modalType: "login" | "upload" = "login";
 
 const squareSize = 48;
 const squaresPerRow = Math.floor(window.innerWidth / squareSize);
