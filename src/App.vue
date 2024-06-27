@@ -94,7 +94,7 @@ const handleModalClose = (logInSuccess: boolean) => {
   fetchImages();
   //update squares used
   showModal.value = false;
-  modalType = "";
+  modalType = "login";
 
   if (logInSuccess) {
     userLoggedIn.value = true;
@@ -105,7 +105,7 @@ const handleSignOut = () => {
   userLoggedIn.value = false;
 };
 
-const handleSignup = (type: string) => {
+const handleSignup = (type: "login" | "upload") => {
   modalType = type;
   showModal.value = true;
 };
