@@ -30,7 +30,7 @@
   </main>
 </template>
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { supabase } from "./supabase";
 import GridSquare from "./components/GridSquare/GridSquare.vue";
 import UploadModal from "./components/UploadModal/UploadModal.vue";
@@ -47,8 +47,9 @@ let modalType = "";
 
 const squareSize = 48;
 const squaresPerRow = Math.floor(window.innerWidth / squareSize);
-// const totalSquares = 1000000;
-const totalSquares = 1000 - usedSquares.value;
+const totalSquares = ref(1000);
+
+console.log("TOTAL SQURES ", usedSquares.value);
 
 const calculateVisibleSquares = () => {
   const viewportHeight = window.innerHeight;
@@ -56,7 +57,7 @@ const calculateVisibleSquares = () => {
   const totalVisibleSquares = rowsNeeded * squaresPerRow;
 
   const newVisibleSquares = Array.from(
-    { length: Math.min(totalVisibleSquares, totalSquares) },
+    { length: Math.min(totalVisibleSquares, totalSquares.value) },
     (_, index) => index + (currentPage.value - 1) * totalVisibleSquares
   );
 
@@ -115,14 +116,22 @@ const fetchImages = async () => {
 
     if (error) throw error;
 
-    usedSquares.value = data.length;
+    const reduce = Object.values(data).reduce(
+      (acc, curr) => {
+        acc.squareImagesUses += curr.squareImagesUses;
+        return acc;
+      },
+      { squareImagesUses: 0 }
+    );
+
+    usedSquares.value = reduce.squareImagesUses;
 
     imagesFromDB.value = data.reduce((acc, image) => {
       acc[image.squareNo] = image;
       return acc;
     }, {});
   } catch (error) {
-    console.log("Error fetching");
+    console.log("Error fetching ", error);
   }
 };
 
@@ -139,6 +148,13 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
 });
+
+watch(
+  () => usedSquares.value,
+  (newVal) => {
+    totalSquares.value = totalSquares.value - newVal;
+  }
+);
 </script>
 
 <style>

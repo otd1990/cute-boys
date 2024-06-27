@@ -14,6 +14,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -25,15 +28,17 @@ body {
   margin: 0;
   background-color: #213547;
 }
-/* 
+
 #app {
-  height: 100dvh;
-} */
+  height: 100%;
+  background-color: #213547;
+}
 
 .grid-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background-color: #213547;
 }
 
 .visually-hidden {

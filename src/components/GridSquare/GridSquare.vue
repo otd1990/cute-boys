@@ -18,6 +18,8 @@ interface ImagesType {
   id: number;
   squareNo: number;
   imageName: string;
+  imageSizeWidth: string;
+  squareImagesUses: number;
 }
 
 interface ImagesObject {
@@ -38,6 +40,12 @@ const imageSrc = computed(() => {
 });
 
 const imageSize = computed(() => {
-  return `height: 48px; width: 48px;`;
+  if (props.images[props.squareNo] === undefined)
+    return `height: 48px; width: 48px;`;
+
+  const imageSizeWidth = 48;
+  const imgSze = imageSizeWidth * props.images[props.squareNo].squareImagesUses;
+
+  return `height: ${imgSze}px; width: ${imgSze}px;`;
 });
 </script>

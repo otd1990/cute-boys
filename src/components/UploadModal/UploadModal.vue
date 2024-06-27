@@ -21,13 +21,15 @@
               />
             </div>
             <div class="form-group">
-              <label for="image-size">Number of squares?</label>
+              <label for="image-size"
+                >Number of squares? selected number
+                {{ formData.squareImagesUses }}</label
+              >
               <input
-                readonly
                 type="number"
                 name="image-size"
                 required
-                value="1"
+                v-model="formData.squareImagesUses"
               />
               <!-- <input
                 type="number"
@@ -89,10 +91,15 @@
 import { ref } from "vue";
 import { supabase } from "../../supabase";
 
-const props = defineProps<{
+interface IUploadModalProps {
   squareNo?: number;
-  modalType?: string;
-}>();
+  modalType?: "login" | "upload";
+}
+
+const props = withDefaults(defineProps<IUploadModalProps>(), {
+  squareNo: 1,
+  modalType: "login",
+});
 
 const emit = defineEmits(["closeModal"]);
 
@@ -102,7 +109,8 @@ const password = ref("");
 const formData = ref({
   squareNo: props.squareNo,
   imageName: "",
-  imageSizeWidth: 48,
+  imageSizeWidth: props.squareNo * 48,
+  squareImagesUses: 1,
 });
 
 // @ts-ignore
